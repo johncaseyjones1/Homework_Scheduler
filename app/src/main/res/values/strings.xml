@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Scheduler</string>
+    <string name="question_1">Give this assignment a name.</string>
+    <string name="hint_1">e.g. Calc Homework</string>
+    <string name="question_2">How many hours do you think this assignment will take?</string>
+    <string name="hint_2">e.g. 1, 2, 0.5, etc</string>
+    <string name="question_4">When is this assignment due?</string>
+    <string name="hint_4">MM/DD/YYYY</string>
+    <string name="next">Next</string>
+    <string name="success_message">Your assignment has been scheduled in your Google Calendar!</string>
+    <string name="another_one">Another Assignment</string>
+    <string name="quit">Quit</string>
+    <string name="title_activity_nothing">nothing</string>
+    <string name="current_id_number">com_example_homework_scheduler_current_id_number</string>
+    <string name="list_of_event_keys">com_example_homework_scheduler_current_event_keys</string>
+
+</resources>

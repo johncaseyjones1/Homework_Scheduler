@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".nothing"
+    android:windowLightStatusBar="true"
+    android:background="#FFFFFF">
+
+
+
+    <Button
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="right"
+        android:id="@+id/options_button"
+        android:layout_width="9.77dp"
+        android:layout_height="40dp"
+        android:alpha="0"
+        android:background="@drawable/options"
+        />
+
+    <TextView
+        android:id="@+id/ohno"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:text="You don't have any assignments scheduled yet! Press the plus button to schedule one."
+        android:gravity="center"
+        android:alpha="0"
+        android:fontFamily="@font/nunito_light"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/top_line"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:text="Current Assignments"
+        android:textStyle="bold"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="26dp"
+        android:alpha="0"/>
+
+    <ListView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/elv"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <ImageView
+        android:id="@+id/logo_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/hws_logo"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/start_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/question_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/question_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/question_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/question_4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/oh_no"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/waiting_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+
+
+
+
+
+    <include layout="@layout/content_nothing" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:alpha="0"
+        app:srcCompat="@drawable/plus" />
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

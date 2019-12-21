@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/back_arrow"
+        style="?android:attr/borderlessButtonStyle"
+        />
+
+    <TableLayout
+        android:layout_gravity="center"
+        android:layout_width="375dp"
+        android:layout_height="match_parent">
+        <TableRow
+            android:minHeight="70dp"
+            android:layoutDirection="ltr"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/start_and_end_option_texts"
+                android:layout_width="100dp"
+                android:fontFamily="@font/nunito_regular"
+                android:gravity="center_vertical"
+                android:maxWidth="100dp"
+                android:text="Homework start and\nend times" />
+
+            <Spinner
+                android:fontFamily="@font/nunito_regular"
+                android:id="@+id/start_time"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:background="@drawable/question_edit_text"
+                android:hint="@string/hint_2"/>
+
+            <Spinner
+                android:fontFamily="@font/nunito_regular"
+                android:id="@+id/end_time"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:background="@drawable/question_edit_text"
+                android:hint="@string/hint_2"/>
+
+        </TableRow>
+
+        <TableRow
+            android:minHeight="70dp"
+            android:layoutDirection="ltr">
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="155dp"
+                android:fontFamily="@font/nunito_regular"
+                android:id="@+id/max_time_option_text"
+                android:text="Maximum homework session time"/>
+            <Spinner
+                android:fontFamily="@font/nunito_regular"
+                android:id="@+id/max_time"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:background="@drawable/question_edit_text"
+                android:hint="@string/hint_2"/>
+        </TableRow>
+
+        <TableRow
+            android:minHeight="70dp"
+            android:layoutDirection="ltr">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/days_before_due"
+                android:layout_width="1dp"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Number of days early to finish assignments" />
+            <Spinner
+                android:fontFamily="@font/nunito_regular"
+                android:id="@+id/days_before"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:background="@drawable/question_edit_text"
+                android:hint="@string/hint_2"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
