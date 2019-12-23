@@ -22,7 +22,6 @@ public class Success_Screen extends Fragment {
         this.mainActivity = activity;
         mainActivity.optionsButton.setClickable(false);
         mainActivity.fab.setClickable(false);
-        mainActivity.fab.setAlpha(0.0f);
     }
 
     @Override
@@ -30,6 +29,8 @@ public class Success_Screen extends Fragment {
         view = inflater.inflate(R.layout.success, container, false);
         mainActivity.fab.setClickable(false);
         mainActivity.fab.setAlpha(0.0f);
+        mainActivity.optionsButton.setClickable(false);
+        mainActivity.optionsButton.setAlpha(0.5f);
 
         //final Button anotherOneButton = view.findViewById(R.id.another_assignment);
         final Button finishedButton = view.findViewById(R.id.quit);
@@ -48,27 +49,6 @@ public class Success_Screen extends Fragment {
             }
         });
 
-
-
-        /*anotherOneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //send content of editText to some "calendarEvent" model
-                System.out.print("Hiii 1");
-
-                //go to question 2
-                FragmentManager fm = getFragmentManager();
-                Fragment frag = new Question_1_Fragment();
-                FragmentTransaction fragTran = fm.beginTransaction();
-                fragTran.setCustomAnimations(R.anim.slide_in_right, 0);
-                fragTran.replace(R.id.question_1, frag);
-                //fragTran.remove();
-                for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-                    fm.popBackStack();
-                }
-                fragTran.commit();
-            }
-        });*/
         return view;
     }
 

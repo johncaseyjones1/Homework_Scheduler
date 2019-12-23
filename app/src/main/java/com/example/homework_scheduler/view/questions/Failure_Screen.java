@@ -77,7 +77,6 @@ public class Failure_Screen extends Fragment {
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
-        mainActivity.optionsButton.setClickable(true);
     }
 
     @Override
@@ -85,7 +84,6 @@ public class Failure_Screen extends Fragment {
         super.onStop();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
-        mainActivity.optionsButton.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 }

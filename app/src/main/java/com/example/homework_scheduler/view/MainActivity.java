@@ -34,12 +34,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -138,26 +140,21 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 
-        /*System.out.println("First line\n");
-        setContentView(R.layout.activity_main_old);
-        FragmentManager fm = this.getSupportFragmentManager();
-        Fragment fragment = (Start_Screen) fm.findFragmentById(R.id.start_screen);
-        if (fragment == null) {
-            fragment = createSSFragment(getString(R.string.app_name));
-            fm.beginTransaction()
-                    .add(R.id.start_screen, fragment)
-                    .commit();
-        }
-         */
+
         setContentView(R.layout.activity_main);
 
         ohno = findViewById(R.id.ohno);
         lb = findViewById(R.id.logo_button);
         topline = findViewById(R.id.top_line);
 
-        ListView listView = findViewById(R.id.elv);
-
-                 // new ArrayAdapter<cEvent>(this, android.R.layout.simple_list_item_1, yeet);
+        final ListView listView = findViewById(R.id.elv);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                //Object listItem = listView.getItemAtPosition(position);
+            }
+        });                 // new ArrayAdapter<cEvent>(this, android.R.layout.simple_list_item_1, yeet);
         //listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, yeet));
         ceventAdapter = new cEventAdapter(this, ld.cEventsForHomeScreen);
 
@@ -183,11 +180,9 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                 }
                 fab.setAlpha(0.0f);
+                optionsButton.setClickable(false);
                 fab.setClickable(false);
-                //optionsButton.setClickable(false);
-                //optionsButton.setAlpha(0.5f);
-                //refreshResults();
-                //refreshResults();
+
             }
         });
 

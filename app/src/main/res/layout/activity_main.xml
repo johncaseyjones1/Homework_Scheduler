@@ -8,9 +8,8 @@
     android:windowLightStatusBar="true"
     android:background="#FFFFFF">
 
-
-
     <Button
+        android:stateListAnimator="@null"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="right"
@@ -37,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="15dp"
-        android:text="Current Assignments"
+        android:text="Your Assignments"
         android:textStyle="bold"
         android:fontFamily="@font/nunito_bold"
         android:textSize="26dp"
@@ -110,11 +109,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 
-
-
-
-
-
     <include layout="@layout/content_nothing" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -125,8 +119,5 @@
         android:layout_margin="@dimen/fab_margin"
         android:alpha="0"
         app:srcCompat="@drawable/plus" />
-
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
