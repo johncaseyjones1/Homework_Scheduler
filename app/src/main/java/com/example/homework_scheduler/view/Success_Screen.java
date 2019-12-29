@@ -19,6 +19,8 @@ public class Success_Screen extends Fragment {
         this.mainActivity = activity;
         mainActivity.optionsButton.setClickable(false);
         mainActivity.fab.setClickable(false);
+        mainActivity.fab.setAlpha(0.0f);
+
     }
 
     @Override
@@ -27,7 +29,7 @@ public class Success_Screen extends Fragment {
         mainActivity.fab.setClickable(false);
         mainActivity.fab.setAlpha(0.0f);
         mainActivity.optionsButton.setClickable(false);
-        mainActivity.optionsButton.setAlpha(0.5f);
+        //mainActivity.optionsButton.setAlpha(0.5f);
 
         //final Button anotherOneButton = view.findViewById(R.id.another_assignment);
         final Button finishedButton = view.findViewById(R.id.quit);

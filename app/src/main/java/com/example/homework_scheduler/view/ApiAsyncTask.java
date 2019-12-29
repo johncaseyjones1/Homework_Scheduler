@@ -61,6 +61,15 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         Vector<String> keysToAddToLocalList = new Vector<>();
+        if(ld.deleteEvent == 1)
+        {
+            try {
+                mActivity.mService.events().delete("primary", ld.eventIDToDelete).execute();
+            } catch (IOException ioe) {
+
+            }
+        }
+
         if (ld.addEvent == 1) {
             ld.notEnoughTime = false;
             //This is what will happen if we are adding an event and not fetching the events
@@ -174,6 +183,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
         mActivity.lb.setAlpha(0.0f);
         mActivity.fab.setAlpha(1.0f);
         mActivity.optionsButton.setAlpha(1.0f);
+        ld.deleteEvent = 0;
         if (ld.cEventsForHomeScreen.size() == 0)
         {
             mActivity.ohno.setAlpha(1.0f);
@@ -232,7 +242,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
                 start = event.getStart().getDate();
             }
 
-            ld.allcEvents.add(calendarEventTocEvent(String.format("%s (%s) - (%s)", event.getSummary(), start, end)));
+            ld.allcEvents.add(calendarEventTocEvent(String.format("%s (%s) - (%s)", event.getSummary(), start, end), event.getId()));
             ld.calendarEvents.add(
                     String.format("%s (%s) - (%s)", event.getSummary(), start, end));
             eventStrings.add(
@@ -277,7 +287,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
         return eventStrings;
     }
 
-    private cEvent calendarEventTocEvent(String eventString)
+    private cEvent calendarEventTocEvent(String eventString, String eventID)
     {
         //System.out.println(eventString);
         cEvent theEvent = new cEvent();
@@ -415,6 +425,8 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
 
         theEvent.startLDT = LocalDateTime.of(theEvent.startYear, theEvent.startMonth, theEvent.startDay, theEvent.startHour, theEvent.startMinutes);
         theEvent.endLDT = LocalDateTime.of(theEvent.endYear, theEvent.endMonth, theEvent.endDay, theEvent.endHour, theEvent.endMinutes);
+
+        theEvent.eventID = eventID;
         /*System.out.println(theEvent.title);
         System.out.println(theEvent.startYear);
         System.out.println(theEvent.startMonth);

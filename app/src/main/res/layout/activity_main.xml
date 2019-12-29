@@ -20,6 +20,16 @@
         android:background="@drawable/options"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:stateListAnimator="@null"
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:alpha="0"
+        app:srcCompat="@drawable/plus" />
+
     <TextView
         android:id="@+id/ohno"
         android:layout_width="300dp"
@@ -72,6 +82,12 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/assignment_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/options"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
@@ -113,13 +129,6 @@
 
     <include layout="@layout/content_nothing" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:alpha="0"
-        app:srcCompat="@drawable/plus" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

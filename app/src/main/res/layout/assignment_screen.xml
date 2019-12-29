@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@id/assignment_screen"
+    android:background="#FFFFFF">
 
     <TextView
-        android:id="@+id/assignment_name"
+        android:id="@+id/assignment_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -18,13 +20,18 @@
         android:id="@+id/assignment_times"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/assignment_name"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textSize="20sp"
         android:textColor="#000000"
         android:fontFamily="@font/nunito_light"/>
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/delete_event"
+        />
 
     <Button
         android:layout_width="40dp"

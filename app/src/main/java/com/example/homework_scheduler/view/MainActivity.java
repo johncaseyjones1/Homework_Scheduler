@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
     public FloatingActionButton fab;
     public TextView topline;
     public Button optionsButton;
+    public Integer eventSelected;
 
 
     /**
@@ -148,13 +149,28 @@ public class MainActivity extends AppCompatActivity {
         topline = findViewById(R.id.top_line);
 
 
+        eventSelected = 0;
 
         final ListView listView = findViewById(R.id.elv);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                FragmentManager fm = getSupportFragmentManager();
+                Fragment fragment = (Assignment_Screen) fm.findFragmentById(R.id.assignment_screen);
+                if (fragment == null) {
+                    fragment = createAssignmentFrag();
+                    fm.beginTransaction()
+                            .addToBackStack(null)
+                            .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_right, R.anim.slide_out_right)
+                            .add(R.id.assignment_screen, fragment)
+                            .commit();
+                }
+                //fab.setAlpha(0.0f);
+                optionsButton.setClickable(false);
+                fab.setClickable(false);
                 //Object listItem = listView.getItemAtPosition(position);
+                eventSelected = position;
             }
         });                 // new ArrayAdapter<cEvent>(this, android.R.layout.simple_list_item_1, yeet);
         //listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, yeet));
@@ -170,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
+                    getFragmentManager().popBackStack();
+                }
                 System.out.println("First line\n");
                 FragmentManager fm = getSupportFragmentManager();
                 Fragment fragment = (Question_1_Fragment) fm.findFragmentById(R.id.question_1);
@@ -181,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                             .add(R.id.question_1, fragment)
                             .commit();
                 }
-                fab.setAlpha(0.0f);
+                //fab.setAlpha(0.0f);
                 optionsButton.setClickable(false);
                 fab.setClickable(false);
 
@@ -252,6 +271,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return LocalTime.of(hour, min, 00);
+    }
+
+    private Assignment_Screen createAssignmentFrag() {
+        Assignment_Screen fragment = new Assignment_Screen(this);
+        Bundle args = new Bundle();
+        return fragment;
     }
 
     private Settings createOptionsFrag() {

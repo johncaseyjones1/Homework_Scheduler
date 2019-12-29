@@ -17,9 +17,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
 import com.example.homework_scheduler.calendar_helpers.Local_Data;
+import com.example.homework_scheduler.model.cEvent;
 import com.example.homework_scheduler.view.MainActivity;
 
 import org.mortbay.jetty.Main;
+
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Assignment_Screen extends Fragment {
     private View view;
@@ -33,10 +38,28 @@ public class Assignment_Screen extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.question_1, container, false);
+        view = inflater.inflate(R.layout.assignment_screen, container, false);
 
+        final cEvent theEvent;
+        theEvent = ld.cEventsForHomeScreen.elementAt(mainActivity.eventSelected);
+
+                Toast.makeText(mainActivity, theEvent.eventID, Toast.LENGTH_SHORT).show();
+
+        final Button delete_button = view.findViewById(R.id.delete_event);
         final Button back_button = view.findViewById(R.id.back_button_from_assignment);
         final TextView assignment_title = view.findViewById(R.id.assignment_title);
+        assignment_title.setText(theEvent.title);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        TextView times = (TextView) view.findViewById(R.id.assignment_times);
+        String prettyStartTime = dtf.format(theEvent.startLDT);
+        String prettyEndTime = dtf.format(theEvent.endLDT);
+        prettyEndTime = prettyEndTime.replaceAll(".*\\, ", "");
+        String timesString = prettyStartTime + " to " + prettyEndTime;
+        timesString = timesString.replaceAll("\\, [0-9][0-9][0-9][0-9]\\,", " from");
+        timesString = timesString.replaceAll("\\:[0-9][0-9] ", " ");
+        times.setText(timesString);
+        //assignment_title.setText("HELP PLEASE");
 
         //assignment_title.setText();
 
@@ -45,6 +68,24 @@ public class Assignment_Screen extends Fragment {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
+                    getFragmentManager().popBackStack();
+                }
+                ((MainActivity)getActivity()).refreshResults();
+            }
+        });
+
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*try {
+                    mainActivity.mService.events().delete("primary", theEvent.eventID).execute();
+                } catch(IOException ioe) {
+
+                }*/
+                ld.deleteEvent = 1;
+                ld.eventIDToDelete = theEvent.eventID;
+                mainActivity.refreshResults();
                 for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
                     getFragmentManager().popBackStack();
                 }

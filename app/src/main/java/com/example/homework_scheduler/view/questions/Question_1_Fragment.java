@@ -34,6 +34,7 @@ public class Question_1_Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.question_1, container, false);
+        mainActivity.fab.setAlpha(0.0f);
 
         final Button nextQButton = view.findViewById(R.id.next_question);
         final EditText theTitle = view.findViewById(R.id.assignment_title);

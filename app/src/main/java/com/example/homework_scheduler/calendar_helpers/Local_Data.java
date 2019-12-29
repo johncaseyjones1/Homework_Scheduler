@@ -20,7 +20,10 @@ public class Local_Data {
 
     public Vector<cEvent> cEventsForHomeScreen = new Vector<>();
 
+    public String eventIDToDelete;
+
     public Integer addEvent = 0;
+    public Integer deleteEvent = 0;
     public LocalTime startHomeworkTime = LocalTime.of(16,00,00,00);
     public LocalTime endHomeworkTime = LocalTime.of(21,00,00,00);
     public Float maxTimeOneSitting = new Float(2);
