@@ -8,11 +8,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.view.questions.Question_1_Fragment;
 
 public class Success_Screen extends Fragment {
     private View view;

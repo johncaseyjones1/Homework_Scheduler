@@ -27,6 +27,7 @@
         android:text="You don't have any assignments scheduled yet! Press the plus button to schedule one."
         android:gravity="center"
         android:alpha="0"
+        android:textColor="#000000"
         android:fontFamily="@font/nunito_light"
         android:layout_gravity="center"
         />
@@ -38,6 +39,7 @@
         android:layout_margin="15dp"
         android:text="Your Assignments"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:fontFamily="@font/nunito_bold"
         android:textSize="26dp"
         android:alpha="0"/>

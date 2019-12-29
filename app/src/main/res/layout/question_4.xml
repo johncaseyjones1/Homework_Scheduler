@@ -34,7 +34,7 @@
         android:textSize="25sp"/>
 
     <Button
-        android:fontFamily="@font/nunito_bold"
+        android:fontFamily="@font/nunito_light"
         android:id="@+id/next_question"
         android:layout_width="275dp"
         android:layout_height="50dp"
@@ -44,7 +44,7 @@
         android:layout_below="@+id/date_text"
         android:text="@string/next"
         android:textSize="25sp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAllCaps="false"/>
 
 </RelativeLayout>

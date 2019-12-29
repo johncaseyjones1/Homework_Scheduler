@@ -99,7 +99,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
 
                 currentID = currentID.replace('-','v');
 
-                System.out.println(currentID);
+                cevent.eventID = currentID;
 
                 event.setId(currentID);
                 try {

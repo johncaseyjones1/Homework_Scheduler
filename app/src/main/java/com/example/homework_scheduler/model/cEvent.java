@@ -19,5 +19,5 @@ public class cEvent {
     public String subtitle = "";
     public LocalDateTime startLDT;
     public LocalDateTime endLDT;
-
+    public String eventID;
 }

@@ -147,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
         lb = findViewById(R.id.logo_button);
         topline = findViewById(R.id.top_line);
 
+
+
         final ListView listView = findViewById(R.id.elv);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
