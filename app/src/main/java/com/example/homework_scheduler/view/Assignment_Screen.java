@@ -34,6 +34,7 @@ public class Assignment_Screen extends Fragment {
     public Assignment_Screen(MainActivity activity){
         this.mainActivity = activity;
         mainActivity.optionsButton.setClickable(false);
+        mainActivity.fab.setAlpha(0.0f);
     }
 
     @Override
@@ -86,9 +87,9 @@ public class Assignment_Screen extends Fragment {
                 ld.deleteEvent = 1;
                 ld.eventIDToDelete = theEvent.eventID;
                 mainActivity.refreshResults();
-                for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
-                    getFragmentManager().popBackStack();
-                }
+                //for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
+                //    getFragmentManager().popBackStack();
+                //}
                 ((MainActivity)getActivity()).refreshResults();
             }
         });

@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView topline;
     public Button optionsButton;
     public Integer eventSelected;
+    public ListView listView;
 
 
     /**
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         eventSelected = 0;
 
-        final ListView listView = findViewById(R.id.elv);
+        listView = findViewById(R.id.elv);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         //FABBBBBBB
         fab = findViewById(R.id.fab);
+        //fab.setAlpha(1.0f);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -424,8 +426,10 @@ public class MainActivity extends AppCompatActivity {
      * @param dataStrings a List of Strings to populate the main TextView with.
      */
     public void updateResultsText(final List<String> dataStrings) {
-        fab.setAlpha(1.0f);
-        fab.setClickable(true);
+        if (ld.firstTime == 1) {
+            fab.setAlpha(1.0f);
+            fab.setClickable(true);
+        }
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

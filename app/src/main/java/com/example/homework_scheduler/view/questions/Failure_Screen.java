@@ -29,6 +29,7 @@ public class Failure_Screen extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.not_enough_time_screen, container, false);
+        mainActivity.listView.setClickable(false);
 
         //final Button anotherOneButton = view.findViewById(R.id.another_assignment);
         final Button finishedButton = view.findViewById(R.id.quit);
@@ -76,6 +77,7 @@ public class Failure_Screen extends Fragment {
         super.onPause();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
+        mainActivity.listView.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 
@@ -84,6 +86,7 @@ public class Failure_Screen extends Fragment {
         super.onStop();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
+        mainActivity.listView.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 }

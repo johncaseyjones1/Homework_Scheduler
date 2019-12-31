@@ -21,6 +21,7 @@ public class Local_Data {
     public Vector<cEvent> cEventsForHomeScreen = new Vector<>();
 
     public String eventIDToDelete;
+    public Integer firstTime = 1;
 
     public Integer addEvent = 0;
     public Integer deleteEvent = 0;

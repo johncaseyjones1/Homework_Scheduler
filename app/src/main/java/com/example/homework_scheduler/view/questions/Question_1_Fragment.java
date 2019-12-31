@@ -29,12 +29,15 @@ public class Question_1_Fragment extends Fragment {
     public Question_1_Fragment(MainActivity activity){
         this.mainActivity = activity;
         mainActivity.optionsButton.setClickable(false);
+        mainActivity.fab.setClickable(false);
+        mainActivity.listView.setClickable(false);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.question_1, container, false);
         mainActivity.fab.setAlpha(0.0f);
+        mainActivity.listView.setClickable(false);
 
         final Button nextQButton = view.findViewById(R.id.next_question);
         final EditText theTitle = view.findViewById(R.id.assignment_title);
@@ -69,6 +72,7 @@ public class Question_1_Fragment extends Fragment {
         super.onPause();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
+        mainActivity.listView.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 }

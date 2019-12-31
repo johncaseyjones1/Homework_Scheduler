@@ -180,10 +180,20 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void input) {
+        if (ld.deleteEvent == 1)
+        {
+            ld.deleteEvent = 0;
+            FragmentManager fm = mActivity.getSupportFragmentManager();
+            for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+                fm.popBackStack();
+            }
+            return;
+        }
+
         mActivity.lb.setAlpha(0.0f);
-        mActivity.fab.setAlpha(1.0f);
+        ld.firstTime = 0;
+        //mActivity.fab.setAlpha(1.0f);
         mActivity.optionsButton.setAlpha(1.0f);
-        ld.deleteEvent = 0;
         if (ld.cEventsForHomeScreen.size() == 0)
         {
             mActivity.ohno.setAlpha(1.0f);

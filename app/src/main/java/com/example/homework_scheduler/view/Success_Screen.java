@@ -20,6 +20,7 @@ public class Success_Screen extends Fragment {
         mainActivity.optionsButton.setClickable(false);
         mainActivity.fab.setClickable(false);
         mainActivity.fab.setAlpha(0.0f);
+        mainActivity.listView.setClickable(false);
 
     }
 
@@ -56,6 +57,7 @@ public class Success_Screen extends Fragment {
         super.onPause();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
+        mainActivity.listView.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 
@@ -64,6 +66,7 @@ public class Success_Screen extends Fragment {
         super.onStop();
         mainActivity.fab.setAlpha(1.0f);
         mainActivity.fab.setClickable(true);
+        mainActivity.listView.setClickable(true);
         mainActivity.optionsButton.setClickable(true);
     }
 }
