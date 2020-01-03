@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/success"
-    android:background="#d9FFFFFF"
+    android:background="@color/colorPrimary"
     android:clickable="true">
 
     <View
@@ -11,7 +11,7 @@
         android:id="@+id/myRectangleView"
         android:layout_width="330dp"
         android:layout_height="605dp"
-        android:background="@drawable/question_rectangle"
+        android:background="@color/colorPrimary"
         android:layout_gravity="center"/>
     <TextView
         android:fontFamily="@font/nunito_regular"

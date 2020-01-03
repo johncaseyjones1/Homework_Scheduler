@@ -200,7 +200,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
             mActivity.topline.setAlpha(0.0f);
         }
         else {
-            mActivity.topline.setAlpha(1.0f);
+            //mActivity.topline.setAlpha(1.0f);
             mActivity.ohno.setAlpha(0.0f);
         }
         if (ld.addEvent == 1 && ld.notEnoughTime == false) {

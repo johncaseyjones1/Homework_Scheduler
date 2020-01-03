@@ -43,6 +43,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -111,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
+        ActionBar actionBar = getSupportActionBar();
+        View abView = findViewById(R.id.the_action_bar);
+
+        actionBar.setCustomView(abView);
+
 
 
 
@@ -147,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
 
         ohno = findViewById(R.id.ohno);
         lb = findViewById(R.id.logo_button);
-        topline = findViewById(R.id.top_line);
 
 
         eventSelected = 0;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/the_action_bar">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Your Assignments"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/text_left"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"/>
+
+        </RelativeLayout>
+
+</LinearLayout>

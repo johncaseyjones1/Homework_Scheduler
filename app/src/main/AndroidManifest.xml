@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".nothing"
-            android:label="@string/title_activity_nothing"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_nothing"></activity>
         <activity android:name=".view.MainActivity"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>

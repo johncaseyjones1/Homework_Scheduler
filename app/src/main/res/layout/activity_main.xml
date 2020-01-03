@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".nothing"
-    android:background="#38B1DE">
+    android:background="#38B1DE"
+    android:id="@+id/activity_main">
 
     <Button
         android:stateListAnimator="@null"
@@ -36,22 +37,13 @@
         android:text="You don't have any assignments scheduled yet! Press the plus button to schedule one."
         android:gravity="center"
         android:alpha="0"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:fontFamily="@font/nunito_light"
         android:layout_gravity="center"
         />
 
-    <TextView
-        android:id="@+id/top_line"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:text="Your Assignments"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:fontFamily="@font/nunito_bold"
-        android:textSize="26dp"
-        android:alpha="0"/>
+
+
 
     <ListView
         android:layout_marginTop="60dp"
@@ -59,8 +51,8 @@
         android:layout_height="match_parent"
         android:id="@+id/elv"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="0.5dp"
+        android:dividerHeight="3dp"
+        android:divider="@null"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />

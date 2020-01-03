@@ -44,7 +44,7 @@ public class Assignment_Screen extends Fragment {
         final cEvent theEvent;
         theEvent = ld.cEventsForHomeScreen.elementAt(mainActivity.eventSelected);
 
-                Toast.makeText(mainActivity, theEvent.eventID, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mainActivity, theEvent.eventID, Toast.LENGTH_SHORT).show();
 
         final Button delete_button = view.findViewById(R.id.delete_event);
         final Button back_button = view.findViewById(R.id.back_button_from_assignment);
@@ -84,6 +84,7 @@ public class Assignment_Screen extends Fragment {
                 } catch(IOException ioe) {
 
                 }*/
+                Toast.makeText(mainActivity,"Just a moment...",Toast.LENGTH_SHORT).show();
                 ld.deleteEvent = 1;
                 ld.eventIDToDelete = theEvent.eventID;
                 mainActivity.refreshResults();
