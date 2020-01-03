@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".nothing"
-    android:windowLightStatusBar="true"
-    android:background="#FFFFFF">
+    android:background="#38B1DE">
 
     <Button
         android:stateListAnimator="@null"
@@ -37,7 +36,7 @@
         android:text="You don't have any assignments scheduled yet! Press the plus button to schedule one."
         android:gravity="center"
         android:alpha="0"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/nunito_light"
         android:layout_gravity="center"
         />

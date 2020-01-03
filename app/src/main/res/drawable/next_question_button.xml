@@ -6,7 +6,7 @@
         android:centerX="0.5"
         android:centerY="0.5"
         android:startColor="@color/colorAccent"
-        android:endColor="#FFFFFF"
+        android:endColor="@color/colorAccent"
         android:gradientRadius="100"
         android:type="linear"/>
     <padding

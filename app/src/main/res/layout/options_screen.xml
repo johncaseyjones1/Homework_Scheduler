@@ -2,21 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/colorPrimary"
     android:clickable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/back_arrow"
         style="?android:attr/borderlessButtonStyle"
         />
 
+    <TextView
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/settings"/>
+
     <TableLayout
         android:layout_gravity="center"
-        android:layout_width="375dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TableRow
             android:minHeight="70dp"
@@ -24,6 +38,7 @@
             android:layout_gravity="center">
 
             <TextView
+                android:textColor="#FFFFFF"
                 android:id="@+id/start_and_end_option_texts"
                 android:layout_width="100dp"
                 android:fontFamily="@font/nunito_regular"
@@ -32,6 +47,7 @@
                 android:text="Homework start and\nend times" />
 
             <Spinner
+                android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/start_time"
                 android:layout_width="100dp"
@@ -42,6 +58,7 @@
                 android:hint="@string/hint_2"/>
 
             <Spinner
+                android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/end_time"
                 android:layout_width="100dp"
@@ -57,12 +74,14 @@
             android:minHeight="70dp"
             android:layoutDirection="ltr">
             <TextView
+                android:textColor="#FFFFFF"
                 android:gravity="center_vertical"
                 android:layout_width="155dp"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/max_time_option_text"
                 android:text="Maximum homework session time"/>
             <Spinner
+                android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/max_time"
                 android:layout_width="100dp"
@@ -78,12 +97,14 @@
             android:layoutDirection="ltr">
 
             <TextView
+                android:textColor="#FFFFFF"
                 android:gravity="center_vertical"
                 android:id="@+id/days_before_due"
                 android:layout_width="1dp"
                 android:fontFamily="@font/nunito_regular"
                 android:text="Number of days early to finish assignments" />
             <Spinner
+                android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/days_before"
                 android:layout_width="50dp"
@@ -94,5 +115,5 @@
                 android:hint="@string/hint_2"/>
         </TableRow>
     </TableLayout>
-
+    </LinearLayout>
 </LinearLayout>
