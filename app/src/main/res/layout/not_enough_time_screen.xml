@@ -26,7 +26,7 @@
             android:layout_marginBottom="25dp"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center_vertical"
-            android:text="Oh no!"
+            android:text="@string/oh_no"
             android:layout_alignTop="@id/myRectangleView"
             android:textSize="31sp"
             android:textColor="#FFFFFF"/>
@@ -39,9 +39,9 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/nunito_regular"
             android:gravity="center_vertical"
-            android:text="There's not enough time to finish your assignment before it's due!\n\nTry adjusting your settings to allow for more time to finish your assignment."
+            android:text="@string/not_enough_time_warning"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"></TextView>
+            android:textSize="25sp"/>
 
 
         <Button
@@ -54,7 +54,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/next_question_button"
             android:fontFamily="@font/nunito_bold"
-            android:text="Back"
+            android:text="@string/go_back"
             android:textColor="#FFFFFF"
             android:textAllCaps="false"
             android:textSize="25sp" />

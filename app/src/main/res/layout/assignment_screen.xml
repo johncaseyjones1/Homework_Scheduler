@@ -42,12 +42,15 @@
         android:gravity="bottom|center">
 
         <Button
-            android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="65dp"
             android:gravity="center"
             android:id="@+id/delete_event"
             android:text="@string/delete_event"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
             android:background="@drawable/next_question_button"
             android:fontFamily="@font/nunito_light"
             />

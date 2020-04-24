@@ -44,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
         android:layout_below="@+id/assignment_time"
-        android:text="Next"
+        android:text="@string/next"
         android:textSize="25sp"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"/>

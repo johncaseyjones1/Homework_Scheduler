@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:layout_below="@+id/question_text"
-        android:text="Finished"
+        android:text="@string/finished"
         android:textSize="25sp"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"/>

@@ -53,10 +53,8 @@ public class Question_4_Fragment extends Fragment {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
