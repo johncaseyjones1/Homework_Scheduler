@@ -14,5 +14,11 @@
     <string name="title_activity_nothing">nothing</string>
     <string name="current_id_number">com_example_homework_scheduler_current_id_number</string>
     <string name="list_of_event_keys">com_example_homework_scheduler_current_event_keys</string>
-
+    <string name="delete_event">Delete event</string>
+    <string name="go_back">Back</string>
+    <string name="no_events_message">You don\'t have any assignments scheduled yet! Press the plus button to schedule one.</string>
+    <string name="your_assignments">Your Assignments</string>
+    <string name="home_start_and_end">Homework start and end times</string>
+    <string name="max_homework_session">Maximum homework session time</string>
+    <string name="num_days_early">Number of days early to finish assignments</string>
 </resources>

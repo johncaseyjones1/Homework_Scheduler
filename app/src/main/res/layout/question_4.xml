@@ -45,7 +45,7 @@
         android:layout_below="@+id/date_text"
         android:text="@string/next"
         android:textSize="25sp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false"/>
 
 </RelativeLayout>

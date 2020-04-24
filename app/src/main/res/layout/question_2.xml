@@ -46,7 +46,7 @@
         android:layout_below="@+id/assignment_time"
         android:text="Next"
         android:textSize="25sp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false"/>
 
 </RelativeLayout>

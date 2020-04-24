@@ -191,13 +191,14 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
         }
 
         mActivity.lb.setAlpha(0.0f);
+        mActivity.myToolbar.setAlpha(1.0f);
         ld.firstTime = 0;
         //mActivity.fab.setAlpha(1.0f);
         mActivity.optionsButton.setAlpha(1.0f);
         if (ld.cEventsForHomeScreen.size() == 0)
         {
             mActivity.ohno.setAlpha(1.0f);
-            mActivity.topline.setAlpha(0.0f);
+            //mActivity.topline.setAlpha(0.0f);
         }
         else {
             //mActivity.topline.setAlpha(1.0f);

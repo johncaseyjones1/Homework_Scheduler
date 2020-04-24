@@ -47,7 +47,6 @@ public class Assignment_Screen extends Fragment {
         //Toast.makeText(mainActivity, theEvent.eventID, Toast.LENGTH_SHORT).show();
 
         final Button delete_button = view.findViewById(R.id.delete_event);
-        final Button back_button = view.findViewById(R.id.back_button_from_assignment);
         final TextView assignment_title = view.findViewById(R.id.assignment_title);
         assignment_title.setText(theEvent.title);
 
@@ -66,7 +65,7 @@ public class Assignment_Screen extends Fragment {
 
         //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-        back_button.setOnClickListener(new View.OnClickListener() {
+        /*back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
@@ -74,7 +73,7 @@ public class Assignment_Screen extends Fragment {
                 }
                 ((MainActivity)getActivity()).refreshResults();
             }
-        });
+        });*/
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override

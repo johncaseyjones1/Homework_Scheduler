@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:fontFamily="@font/nunito_bold"
         android:text="@string/settings"/>
 
@@ -33,9 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TableRow
-            android:minHeight="70dp"
+            android:minHeight="90dp"
             android:layoutDirection="ltr"
-            android:layout_gravity="center">
+            android:gravity="center_vertical">
 
             <TextView
                 android:textColor="#FFFFFF"
@@ -44,7 +44,8 @@
                 android:fontFamily="@font/nunito_regular"
                 android:gravity="center_vertical"
                 android:maxWidth="100dp"
-                android:text="Homework start and\nend times" />
+                android:text="@string/home_start_and_end"
+                android:textSize="17sp"/>
 
             <Spinner
                 android:textColor="#FFFFFF"
@@ -52,10 +53,10 @@
                 android:id="@+id/start_time"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:background="@drawable/question_edit_text"
-                android:hint="@string/hint_2"/>
+                android:hint="@string/hint_2"
+                android:layout_marginEnd="5dp"/>
 
             <Spinner
                 android:textColor="#FFFFFF"
@@ -63,7 +64,6 @@
                 android:id="@+id/end_time"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:background="@drawable/question_edit_text"
                 android:hint="@string/hint_2"/>
@@ -71,30 +71,32 @@
         </TableRow>
 
         <TableRow
-            android:minHeight="70dp"
-            android:layoutDirection="ltr">
+            android:minHeight="90dp"
+            android:layoutDirection="ltr"
+            android:gravity="center_vertical">
             <TextView
                 android:textColor="#FFFFFF"
                 android:gravity="center_vertical"
                 android:layout_width="155dp"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/max_time_option_text"
-                android:text="Maximum homework session time"/>
+                android:text="@string/max_homework_session"
+                android:textSize="17sp"/>
             <Spinner
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/max_time"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:background="@drawable/question_edit_text"
                 android:hint="@string/hint_2"/>
         </TableRow>
 
         <TableRow
-            android:minHeight="70dp"
-            android:layoutDirection="ltr">
+            android:minHeight="90dp"
+            android:layoutDirection="ltr"
+            android:gravity="center_vertical">
 
             <TextView
                 android:textColor="#FFFFFF"
@@ -102,14 +104,14 @@
                 android:id="@+id/days_before_due"
                 android:layout_width="1dp"
                 android:fontFamily="@font/nunito_regular"
-                android:text="Number of days early to finish assignments" />
+                android:text="@string/num_days_early"
+                android:textSize="17sp"/>
             <Spinner
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_regular"
                 android:id="@+id/days_before"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:background="@drawable/question_edit_text"
                 android:hint="@string/hint_2"/>
