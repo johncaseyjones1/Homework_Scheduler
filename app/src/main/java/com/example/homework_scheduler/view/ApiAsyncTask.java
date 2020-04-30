@@ -24,10 +24,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EventListener;
 import java.util.List;
 import java.util.UUID;
@@ -253,7 +257,8 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
                 start = event.getStart().getDate();
             }
 
-            ld.allcEvents.add(calendarEventTocEvent(String.format("%s (%s) - (%s)", event.getSummary(), start, end), event.getId()));
+            //ld.allcEvents.add(calendarEventTocEvent(String.format("%s (%s) - (%s)", event.getSummary(), start, end), event.getId()));
+            ld.allcEvents.add(calendarEventTocEvent(event));
             ld.calendarEvents.add(
                     String.format("%s (%s) - (%s)", event.getSummary(), start, end));
             eventStrings.add(
@@ -298,163 +303,30 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
         return eventStrings;
     }
 
-    private cEvent calendarEventTocEvent(String eventString, String eventID)
+    private cEvent calendarEventTocEvent(Event event)
     {
         //System.out.println(eventString);
         cEvent theEvent = new cEvent();
-        Integer titleLength = 0;
-        Integer startHere = 0;
-        boolean pastTitle = false;
-        String startYear = "";
-        String startMonth = "";
-        String startDay = "";
-        String startHour = "";
-        String startMinutes = "";
-        String endYear = "";
-        String endMonth = "";
-        String endDay = "";
-        String endHour = "";
-        String endMinutes = "";
-        for (int i = 0; i < eventString.length(); ++i) {
-            if (eventString.charAt(i) == '(' && eventString.charAt(i + 1) == '2')
-            {
-                pastTitle = true;
-                break;
-            }
-            theEvent.title += eventString.charAt(i);
-            titleLength++;
-        }
 
-        //parse start year
-        for (int i = 0; i < 4; ++i)
-        {
-            startYear += eventString.charAt(titleLength + 1 + i);
-        }
-        theEvent.startYear = Integer.parseInt(startYear);
-        startHere = titleLength + 6;
+        Date startDate = new Date(event.getStart().getDateTime().getValue());
+        ZoneOffset startoffset = ZoneOffset.ofTotalSeconds(event.getStart().getDateTime().getTimeZoneShift() * 60);
+        ZoneId startzone = ZoneId.ofOffset("UTC", startoffset);
+        Instant startinstant = startDate.toInstant();
+        LocalDateTime startLDT = LocalDateTime.ofInstant(startinstant, startzone);
 
-        //parse start month
-        for (int i = 0; i < 2; ++i)
-        {
-            startMonth += eventString.charAt(startHere + i);
-        }
-        //System.out.println(startMonth);
-        theEvent.startMonth = Integer.parseInt(startMonth);
-        startHere = startHere + 3;
+        Date endDate = new Date(event.getEnd().getDateTime().getValue());
+        ZoneOffset endoffset = ZoneOffset.ofTotalSeconds(event.getEnd().getDateTime().getTimeZoneShift() * 60);
+        ZoneId endzone = ZoneId.ofOffset("UTC", endoffset);
+        Instant endinstant = endDate.toInstant();
+        LocalDateTime endLDT = LocalDateTime.ofInstant(endinstant, endzone);
+        String title = event.getSummary();
 
-        //parse start day
-        for (int i = 0; i < 2; ++i)
-        {
-            startDay += eventString.charAt(startHere + i);
-        }
-        //System.out.println(startDay);
-        theEvent.startDay = Integer.parseInt(startDay);
-        startHere = startHere + 3;
-
-        //parse start hour
-        for (int i = 0; i < 2; ++i)
-        {
-            startHour += eventString.charAt(startHere + i);
-        }
-        theEvent.startHour = Integer.parseInt(startHour);
-       // System.out.println("hour " + startHour);
-        startHere = startHere + 3;
-
-        //parse start minutes
-        for (int i = 0; i < 2; ++i)
-        {
-            startMinutes += eventString.charAt(startHere + i);
-        }
-        theEvent.startMinutes = Integer.parseInt(startMinutes);
-        //System.out.println("minutes " + startMinutes);
-        //startHere = startHere + 20;
-
-        //System.out.println("start here is at " + startHere);
-
-        String startTime = "";
-        startTime = startHour + startMinutes;
-        theEvent.startTime = Integer.parseInt(startTime);
-
-        //System.out.println("Hopefully 20: " + eventString.charAt(startHere) + eventString.charAt(startHere + 1));
-
-        boolean nextYearFound = false;
-        while (!nextYearFound)
-        {
-            if (eventString.charAt(startHere) == '2' && eventString.charAt(startHere - 1) == '(')
-                nextYearFound = true;
-            else
-                startHere++;
-        }
-
-        //parse end year
-        for (int i = 0; i < 4; ++i)
-        {
-            endYear += eventString.charAt(startHere + i);
-        }
-        theEvent.endYear = Integer.parseInt(endYear);
-        startHere = startHere + 5;
-
-        //parse end month
-        for (int i = 0; i < 2; ++i)
-        {
-            endMonth += eventString.charAt(startHere + i);
-        }
-        //System.out.println(endMonth);
-        theEvent.endMonth = Integer.parseInt(endMonth);
-        startHere = startHere + 3;
-
-        //parse end day
-        for (int i = 0; i < 2; ++i)
-        {
-            endDay += eventString.charAt(startHere + i);
-        }
-        //System.out.println(endDay);
-        theEvent.endDay = Integer.parseInt(endDay);
-        startHere = startHere + 3;
-
-        //parse end hour
-        for (int i = 0; i < 2; ++i)
-        {
-            endHour += eventString.charAt(startHere + i);
-        }
-        theEvent.endHour = Integer.parseInt(endHour);
-        //System.out.println("hour " + endHour);
-        startHere = startHere + 3;
-
-        //parse end minutes
-        for (int i = 0; i < 2; ++i)
-        {
-            endMinutes += eventString.charAt(startHere + i);
-        }
-        theEvent.endMinutes = Integer.parseInt(endMinutes);
-        //System.out.println("minutes " + endMinutes);
-        startHere = startHere + 20;
-
-        String endTime = "";
-        endTime = endHour + endMinutes;
-        theEvent.endTime = Integer.parseInt(endTime);
-
-        theEvent.startLDT = LocalDateTime.of(theEvent.startYear, theEvent.startMonth, theEvent.startDay, theEvent.startHour, theEvent.startMinutes);
-        theEvent.endLDT = LocalDateTime.of(theEvent.endYear, theEvent.endMonth, theEvent.endDay, theEvent.endHour, theEvent.endMinutes);
-
-        theEvent.eventID = eventID;
-        /*System.out.println(theEvent.title);
-        System.out.println(theEvent.startYear);
-        System.out.println(theEvent.startMonth);
-        System.out.println(theEvent.startDay);
-        System.out.println(theEvent.startTime);
-        System.out.println(theEvent.endYear);
-        System.out.println(theEvent.endMonth);
-        System.out.println(theEvent.endDay);
-        System.out.println(theEvent.endTime);*/
+        theEvent.startLDT = startLDT;
+        theEvent.endLDT = endLDT;
+        theEvent.title = title;
+        theEvent.eventID = event.getId();
 
         return theEvent;
-    }
-
-    private List<String> addEventsToCalendar() throws IOException {
-        //calculate when the event needs to go
-        //mActivity.mService.events().insert("primary",);
-        return new ArrayList<>();
     }
 
     boolean extraEvent = false;

@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         //getWindow().setStatusBarColor(Color.WHITE);
         super.onCreate(savedInstanceState);
+        System.out.println("STARTED");
         LinearLayout activityLayout = new LinearLayout(this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
