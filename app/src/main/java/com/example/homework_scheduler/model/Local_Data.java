@@ -1,7 +1,4 @@
-package com.example.homework_scheduler.calendar_helpers;
-
-import com.example.homework_scheduler.model.cEvent;
-import com.google.api.client.util.DateTime;
+package com.example.homework_scheduler.model;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -27,7 +24,7 @@ public class Local_Data {
     public Integer deleteEvent = 0;
     public LocalTime startHomeworkTime = LocalTime.of(16,00,00,00);
     public LocalTime endHomeworkTime = LocalTime.of(21,00,00,00);
-    public Float maxTimeOneSitting = new Float(2);
+    public Float maxTimeOneSitting = 2f;
     public Integer daysEarly = 1;
     public Integer startTimeInt = 16;
     public Integer endTimeInt = 20;
@@ -40,7 +37,7 @@ public class Local_Data {
 
 
     //data for a new assignment
-    public Float assignmentLength = new Float(11.0);
+    public Float assignmentLength = 11f;
     public String assignmentTitle = "English Paper";
     public LocalDateTime dueDate = LocalDateTime.of(2020, Month.FEBRUARY, 16, 23, 00); // ("2020-02-17T23:00:00-07:00");
 

@@ -1,8 +1,6 @@
 package com.example.homework_scheduler.view.questions;
 
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,9 +16,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.calendar_helpers.Local_Data;
+import com.example.homework_scheduler.model.Local_Data;
 import com.example.homework_scheduler.view.MainActivity;
-import com.example.homework_scheduler.view.Success_Screen;
 import com.example.homework_scheduler.view.Waiting_Screen;
 
 import java.time.LocalDateTime;

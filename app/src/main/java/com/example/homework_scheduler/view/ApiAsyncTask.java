@@ -1,8 +1,6 @@
 package com.example.homework_scheduler.view;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.icu.util.LocaleData;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
@@ -11,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.calendar_helpers.Local_Data;
+import com.example.homework_scheduler.model.Local_Data;
 import com.example.homework_scheduler.model.cEvent;
 import com.example.homework_scheduler.view.questions.Failure_Screen;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
@@ -23,16 +21,15 @@ import com.google.api.services.calendar.model.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.Console;
 import java.io.IOException;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.EventListener;
 import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
@@ -69,7 +66,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
         {
             try {
                 mActivity.mService.events().delete("primary", ld.eventIDToDelete).execute();
-            } catch (IOException ioe) {
+            } catch (IOException ignored) {
 
             }
         }
@@ -79,7 +76,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
             //This is what will happen if we are adding an event and not fetching the events
             createcEvents();
 
-            if (ld.notEnoughTime == true)
+            if (ld.notEnoughTime)
             {
                 return null;
             }
@@ -333,27 +330,6 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
 
     private Vector<cEvent> createcEvents() {
         Vector<cEvent> theEvents = new Vector<>();
-        int numEvents = 0;
-        Float eventTime = new Float(0);
-        Float extraEventTime = new Float(0);
-        if (ld.assignmentLength > ld.maxTimeOneSitting)
-        {
-            numEvents = ld.assignmentLength.intValue() / ld.maxTimeOneSitting.intValue() + ld.assignmentLength.intValue() % ld.maxTimeOneSitting.intValue();
-            if (ld.assignmentLength.intValue() % ld.maxTimeOneSitting.intValue() > 0)
-            {
-                extraEventTime = ld.assignmentLength - ld.maxTimeOneSitting * (numEvents - 1);
-                System.out.println("extra event time is " + extraEventTime);
-                extraEvent = true;
-            }
-            System.out.println("numEvents is: " + numEvents);
-            eventTime = ld.maxTimeOneSitting;
-        } else {
-            eventTime = ld.assignmentLength;
-            numEvents = 1;
-        }
-
-        int extraEventTimeInMinutes = (int) Math.round(extraEventTime * 60);
-        int eventTimeInMinutes = (int) Math.round(eventTime * 60);
         int assignmentLengthInMinutes = (int) Math.round(ld.assignmentLength * 60);
 
         boolean enoughEvents = false;
@@ -381,14 +357,13 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
                 }
             }
             //try to add it in during homework time and avoiding events
-            int startHour = 0;
             LocalTime startTime;
             boolean cantAdd = false;
             cEvent cEventToAdd = new cEvent();
             cEventToAdd.startLDT = null;
             int highestTime = 0;
 
-            for (int j = 30; j <= (int) Math.round(ld.maxTimeOneSitting * 60); j = j + 30)
+            for (int j = 30; j <= ld.maxTimeOneSitting * 60; j = j + 30)
             {
                 if (assignmentLengthInMinutes - hwTimeAdded > 30 && j == 30)
                     j = 60;
@@ -401,24 +376,29 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
                 for (LocalTime i = ld.startHomeworkTime; i.isBefore(ld.endHomeworkTime); i = i.plusMinutes(30))
                 {
                     cantAdd = false;
-                    startHour = i.getHour();
                     startTime = i;
-                    cEvent eventWithDMY = null;
                     for (cEvent cevent: eventsOnCorrectDay)
                     {
-                        if (startTime.equals(cevent.startLDT.toLocalTime()))
+                        if (startTime.equals(cevent.startLDT.toLocalTime())) {
+                            System.out.println("error 1");
                             cantAdd = true;
+                        }
 
-                        if (startTime.isBefore(ld.startHomeworkTime) || startTime.plusMinutes(j).isAfter(ld.endHomeworkTime) || startTime.plusMinutes(j).isBefore(ld.startHomeworkTime) || startTime.isAfter(ld.endHomeworkTime))
+                        if (startTime.isBefore(ld.startHomeworkTime) || startTime.plusMinutes(j).isAfter(ld.endHomeworkTime) || startTime.plusMinutes(j).isBefore(ld.startHomeworkTime) || startTime.isAfter(ld.endHomeworkTime)) {
+                            System.out.println("error 2");
                             cantAdd = true;
+                        }
 
-                        if (startTime.isBefore(cevent.startLDT.toLocalTime()) && !(startTime.plusMinutes(j).isBefore(cevent.startLDT.toLocalTime()) || startTime.plusMinutes(j).equals(cevent.startLDT.toLocalTime())))
+                        if ((startTime.isBefore(cevent.startLDT.toLocalTime()) && !(startTime.plusMinutes(j).isBefore(cevent.startLDT.toLocalTime())) || startTime.plusMinutes(j).equals(cevent.startLDT.toLocalTime()))) {
+                            System.out.println("error 3");
                             cantAdd = true;
+                        }
 
-                        if(startTime.isAfter(cevent.startLDT.toLocalTime()) && !(startTime.isAfter(cevent.endLDT.toLocalTime())))
+                        if(startTime.isAfter(cevent.startLDT.toLocalTime()) && !(startTime.isAfter(cevent.endLDT.toLocalTime()))) {
+                            System.out.println("error 4");
                             cantAdd = true;
+                        }
 
-                        eventWithDMY = cevent;
                     }
                     if (!cantAdd)
                     {
@@ -428,7 +408,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
 
                         cEventToAdd.startLDT = LocalDateTime.of(mustBeBefore.minusDays(1).getYear(), mustBeBefore.minusDays(1).getMonth(), mustBeBefore.minusDays(1).getDayOfMonth(), i.getHour(), i.getMinute(), i.getSecond());
                         cEventToAdd.endLDT = LocalDateTime.of(mustBeBefore.minusDays(1).getYear(), mustBeBefore.minusDays(1).getMonth(), mustBeBefore.minusDays(1).getDayOfMonth(), i.plusMinutes(j).getHour(), i.plusMinutes(j).getMinute(), i.plusMinutes(j).getSecond());
-                        cEventToAdd.title = ld.assignmentTitle;//ld.assignmentcEvents.add(cEventToAdd);
+                        cEventToAdd.title = ld.assignmentTitle; //ld.assignmentcEvents.add(cEventToAdd);
                         //theEvents.add(cEventToAdd);
                         highestTime = j;
                         //numEventsAdded++;

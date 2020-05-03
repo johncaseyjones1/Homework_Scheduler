@@ -1,9 +1,6 @@
 package com.example.homework_scheduler.calendar_helpers;
-import android.net.Uri;
-import android.util.AndroidException;
-import android.widget.Toast;
 
-import com.example.homework_scheduler.R;
+import com.example.homework_scheduler.model.Local_Data;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;

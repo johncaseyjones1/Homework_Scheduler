@@ -16,12 +16,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.calendar_helpers.Local_Data;
-import com.example.homework_scheduler.view.MainActivity;
+import com.example.homework_scheduler.model.Local_Data;
 
 import java.time.LocalTime;
 

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.calendar_helpers.Local_Data;
+import com.example.homework_scheduler.model.Local_Data;
 
 public class Question_2_Fragment extends Fragment {
     private View view;
