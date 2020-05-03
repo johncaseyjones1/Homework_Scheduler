@@ -1,7 +1,6 @@
 package com.example.homework_scheduler.view;
 
 import com.example.homework_scheduler.R;
-import com.example.homework_scheduler.cEventAdapter;
 import com.example.homework_scheduler.model.Local_Data;
 import com.example.homework_scheduler.model.cEvent;
 import com.example.homework_scheduler.view.questions.Question_1_Fragment;
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public Vector<cEvent> yeet = new Vector<>();
     cEventAdapter ceventAdapter;
 
-    com.google.api.services.calendar.Calendar mService;
+    public com.google.api.services.calendar.Calendar mService;
 
     GoogleAccountCredential credential;
     private TextView mStatusText;

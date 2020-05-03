@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.homework_scheduler.R;
 import com.example.homework_scheduler.model.Local_Data;
 import com.example.homework_scheduler.model.cEvent;
+import com.example.homework_scheduler.view.MainActivity;
+import com.example.homework_scheduler.view.Success_Screen;
 import com.example.homework_scheduler.view.questions.Failure_Screen;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;

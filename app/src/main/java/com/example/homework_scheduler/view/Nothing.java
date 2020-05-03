@@ -1,7 +1,8 @@
-package com.example.homework_scheduler;
+package com.example.homework_scheduler.view;
 
 import android.os.Bundle;
 
+import com.example.homework_scheduler.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -10,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class nothing extends AppCompatActivity {
+public class Nothing extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.homework_scheduler;
+package com.example.homework_scheduler.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.homework_scheduler.R;
 import com.example.homework_scheduler.model.cEvent;
 
 import java.text.SimpleDateFormat;
