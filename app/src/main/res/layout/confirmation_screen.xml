@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:clickable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/these_are_current_settings"/>
+
+        <TableLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="260dp">
+            <TableRow
+                android:minHeight="90dp"
+                android:layoutDirection="ltr"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:id="@+id/start_and_end_option_texts"
+                    android:layout_width="100dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:gravity="center_vertical"
+                    android:maxWidth="100dp"
+                    android:text="@string/home_start_and_end"
+                    android:textSize="17sp"/>
+
+                <Spinner
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/nunito_regular"
+                    android:id="@+id/start_time"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:background="@drawable/question_edit_text"
+                    android:hint="@string/hint_2"
+                    android:layout_marginEnd="5dp"/>
+
+                <Spinner
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/nunito_regular"
+                    android:id="@+id/end_time"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:background="@drawable/question_edit_text"
+                    android:hint="@string/hint_2"/>
+
+            </TableRow>
+
+            <TableRow
+                android:minHeight="90dp"
+                android:layoutDirection="ltr"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:layout_width="155dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:id="@+id/max_time_option_text"
+                    android:text="@string/max_homework_session"
+                    android:textSize="17sp"/>
+                <Spinner
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/nunito_regular"
+                    android:id="@+id/max_time"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:background="@drawable/question_edit_text"
+                    android:hint="@string/hint_2"/>
+            </TableRow>
+
+            <TableRow
+                android:minHeight="90dp"
+                android:layoutDirection="ltr"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:id="@+id/days_before_due"
+                    android:layout_width="1dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="@string/num_days_early"
+                    android:textSize="17sp"/>
+                <Spinner
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/nunito_regular"
+                    android:id="@+id/days_before"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:background="@drawable/question_edit_text"
+                    android:hint="@string/hint_2"/>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/next_question"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="125dp"
+            android:background="@drawable/next_question_button"
+            android:fontFamily="@font/nunito_light"
+            android:layout_gravity="center"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+    </LinearLayout>
+</LinearLayout>

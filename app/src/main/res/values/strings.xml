@@ -25,4 +25,5 @@
     <string name="waiting_message">Just one moment.\n\nYour assignment is being scheduled!</string>
     <string name="oh_no">Oh no!</string>
     <string name="not_enough_time_warning">There\'s not enough time to finish your assignment before it\'s due!\n\nTry adjusting your settings to allow for more time to finish your assignment.</string>
+    <string name="these_are_current_settings">These are your current settings. Would you like to change anything for this assignment?</string>
 </resources>
