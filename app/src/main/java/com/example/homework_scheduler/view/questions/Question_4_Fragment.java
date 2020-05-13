@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.homework_scheduler.R;
 import com.example.homework_scheduler.model.Local_Data;
+import com.example.homework_scheduler.view.Confirmation_Screen;
 import com.example.homework_scheduler.view.MainActivity;
 import com.example.homework_scheduler.view.Waiting_Screen;
 
@@ -79,14 +80,14 @@ public class Question_4_Fragment extends Fragment {
 
                 ld.addEvent = 1;
                 FragmentManager fm = getFragmentManager();
-                Fragment frag = new Waiting_Screen();
+                Fragment frag = new Confirmation_Screen();
                 FragmentTransaction fragTran = fm.beginTransaction();
                 //fragTran.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
                 fragTran.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_right, R.anim.slide_out_right);
                 fragTran.replace(R.id.waiting_screen, frag);
                 fragTran.addToBackStack(null);
                 fragTran.commit();
-                ((MainActivity)getActivity()).refreshResults();
+                //((MainActivity)getActivity()).refreshResults();
 
 
             }
